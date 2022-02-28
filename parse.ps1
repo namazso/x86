@@ -14,12 +14,12 @@
 #   You should have received a copy of the GNU Affero General Public License
 #   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-[void](mkdir -Force svg)
+[void](New-Item -ItemType Directory -Force svg)
 
 & mutool convert -o "svg/%d.svg" -F svg "325383-sdm-vol-2abcd.pdf"
 
 $Files = Get-ChildItem "svg";
-[void](mkdir -Force svg_trim)
+[void](New-Item -ItemType Directory -Force svg_trim)
 
 $Namespace = @{ svg = "http://www.w3.org/2000/svg" }
 
@@ -79,7 +79,7 @@ $Files | ForEach-Object {
     [void]$Ins.Pages.Sort();
 }
 
-[void](mkdir -Force html)
+[void](New-Item -ItemType Directory -Force html)
 
 function SHA256 {
     param(
