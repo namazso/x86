@@ -1,0 +1,308 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: NeoSansIntel;
+    font-weight: 400;
+    src: url(font/Neo-Sans-Intel.ttf);
+}
+
+@font-face {
+    font-family: NeoSansIntel;
+    font-weight: 400;
+    font-style: italic;
+    src: url(font/Neo-Sans-Intel-Italic.ttf);
+}
+
+@font-face {
+    font-family: NeoSansIntel;
+    font-weight: 500;
+    src: url(font/Neo-Sans-Intel-Medium.ttf);
+}
+
+@font-face {
+    font-family: NeoSansIntel;
+    font-weight: 500;
+    font-style: italic;
+    src: url(font/Neo-Sans-Intel-Medium-Italic.ttf);
+}
+
+@font-face {
+    font-family: NeoSansIntel;
+    font-weight: 300;
+    src: url(font/Neo-Sans-Intel-Light.ttf);
+}
+
+@font-face {
+    font-family: NeoSansIntel;
+    font-weight: 300;
+    font-style: italic;
+    src: url(font/Neo-Sans-Intel-Light-Italic.ttf);
+}
+
+@font-face {
+    font-family: DejaVuLGCSans;
+    font-weight: normal;
+    src: url(font/DejaVuLGCSans.ttf);
+}
+
+@font-face {
+    font-family: DejaVuLGCSans;
+    font-weight: normal;
+    font-style: oblique;
+    src: url(font/DejaVuLGCSans-Oblique.ttf);
+}
+
+@font-face {
+    font-family: DejaVuLGCSans;
+    font-weight: bold;
+    src: url(font/DejaVuLGCSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: DejaVuLGCSans;
+    font-weight: bold;
+    font-style: oblique;
+    src: url(font/DejaVuLGCSans-BoldOblique.ttf);
+}
+
+@font-face {
+    font-family: LiberationSans;
+    font-weight: normal;
+    src: url(font/LiberationSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: LiberationSans;
+    font-weight: normal;
+    font-style: italic;
+    src: url(font/LiberationSans-Italic.ttf);
+}
+
+@font-face {
+    font-family: LiberationSans;
+    font-weight: bold;
+    src: url(font/LiberationSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: LiberationSans;
+    font-weight: bold;
+    font-style: italic;
+    src: url(font/LiberationSans-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: LiberationSerif;
+    font-weight: normal;
+    src: url(font/LiberationSerif-Regular.ttf);
+}
+
+@font-face {
+    font-family: LiberationSerif;
+    font-weight: normal;
+    font-style: italic;
+    src: url(font/LiberationSerif-Italic.ttf);
+}
+
+@font-face {
+    font-family: LiberationSerif;
+    font-weight: bold;
+    src: url(font/LiberationSerif-Bold.ttf);
+}
+
+@font-face {
+    font-family: LiberationSerif;
+    font-weight: bold;
+    font-style: italic;
+    src: url(font/LiberationSerif-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: LiberationMono;
+    font-weight: normal;
+    src: url(font/LiberationMono-Regular.ttf);
+}
+
+@font-face {
+    font-family: LiberationMono;
+    font-weight: normal;
+    font-style: italic;
+    src: url(font/LiberationMono-Italic.ttf);
+}
+
+@font-face {
+    font-family: LiberationMono;
+    font-weight: bold;
+    src: url(font/LiberationMono-Bold.ttf);
+}
+
+@font-face {
+    font-family: LiberationMono;
+    font-weight: bold;
+    font-style: italic;
+    src: url(font/LiberationMono-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: Carlito;
+    font-weight: normal;
+    src: url(font/Carlito-Regular.ttf);
+}
+
+@font-face {
+    font-family: Carlito;
+    font-weight: normal;
+    font-style: italic;
+    src: url(font/Carlito-Italic.ttf);
+}
+
+@font-face {
+    font-family: Carlito;
+    font-weight: bold;
+    src: url(font/Carlito-Bold.ttf);
+}
+
+@font-face {
+    font-family: Carlito;
+    font-weight: bold;
+    font-style: italic;
+    src: url(font/Carlito-BoldItalic.ttf);
+}
+
+
+/* remove white backgrounds */
+
+.cF744C31D {
+    fill: none;
+}
+
+.cAF7646FE {
+    font-family: NeoSansIntel;
+    font-weight: 400;
+}
+
+.c36E3F4EC {
+    font-family: NeoSansIntel;
+    font-style: italic;
+}
+
+.cD0BE81C2 {
+    font-family: NeoSansIntel;
+    font-weight: 500;
+}
+
+.c87595EFD {
+    font-family: NeoSansIntel;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.not_instruction_page {
+    font-family: NeoSansIntel;
+}
+
+.cECB6486A {
+    font-family: DejaVuLGCSans;
+}
+
+.c89C0ADDA {
+    font-family: DejaVuLGCSans;
+    font-weight: bold;
+}
+
+.c9DDB7017 {
+    font-family: DejaVuLGCSans;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+.c0F4078D5 {
+    font-family: DejaVuLGCSans;
+    font-style: oblique;
+}
+
+.cC7C7E1F8 {
+    font-family: LiberationSans;
+}
+
+.c1AE6E0A5 {
+    font-family: LiberationSans;
+    font-weight: bold;
+}
+
+.c3C70C594 {
+    font-family: LiberationSans;
+    font-style: italic;
+}
+
+.c9DBAE658 {
+    font-family: LiberationSerif;
+}
+
+.c1AED0160 {
+    font-family: LiberationSerif;
+    font-weight: bold;
+}
+
+.c705FED33 {
+    font-family: LiberationMono;
+}
+
+.c5B3C61BD {
+    font-family: Carlito;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: #242424;
+        color: white;
+    }
+
+    text {
+        fill: white;
+    }
+
+    path {
+        stroke: white;
+    }
+}
+
+a {
+    color: inherit;
+}
+
+.no_margin_fill {
+    height: 100%;
+    margin: 0;
+}
+
+.big_table {
+    margin: 0 auto;
+    border-style: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+iframe {
+    border-style: none;
+    height: 100%;
+    width: 100%;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+.hide_scroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+.hide_scroll {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
