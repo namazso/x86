@@ -16,42 +16,14 @@
 
 [void](New-Item -ItemType Directory -Force svg)
 
-& mutool convert -o "svg/%d.svg" -F svg "325383-sdm-vol-2abcd.pdf"
+& mutool convert -o "svg/%d.svg" -O text=text -F svg "325383-sdm-vol-2abcd.pdf"
 
 $Files = Get-ChildItem "svg";
-[void](New-Item -ItemType Directory -Force svg_trim)
 
 $Namespace = @{ svg = "http://www.w3.org/2000/svg" }
 
-$Files | ForEach-Object {
-    $CopyName = "svg_trim/$($_.BaseName).svg";
-    Copy-Item -Path $_.FullName -Destination $CopyName;
-    $CopyItem = Get-Item -Path $CopyName;
-    $Paths = (Select-Xml -Namespace $Namespace -Path $CopyItem.FullName -XPath "/svg:svg/svg:g/svg:path") | ForEach-Object { $_.Node }
-    $SelectPath2 = "";
-    if (($Paths.Count -gt 0) -and ($Paths[0].fill -eq "#ffffff")) {
-        $SelectPath2 = "--select=path2";
-    }
-    $SelectPath12 = "";
-    if (($Paths.Count -gt 1) -and ($Paths[1].fill -eq "#ffffff")) {
-        $SelectPath12 = "--select=path12";
-    }
-    # make sure inkscape version is less than 1.0
-    & $env:INKSCAPE_BIN `
-        --select=text6 `
-        --select=text10 `
-        --select=text16 `
-        $SelectPath2 `
-        $SelectPath12 `
-        --verb=EditDelete `
-        --verb=FitCanvasToDrawing `
-        --verb=FileSave `
-        --verb=FileClose `
-        --verb=FileQuit `
-        $CopyItem.FullName
-}
-
-$Instructions = @{}
+$Instructions = @{};
+$PagesNeeded = [System.Collections.ArrayList]@();
 $Files | ForEach-Object {
     $HeaderNameObj = Select-Xml `
         -Namespace $Namespace `
@@ -76,8 +48,41 @@ $Files | ForEach-Object {
     }
     $Ins = $Instructions.$InstructionName;
     [void]$Ins.Pages.Add([int]$_.BaseName);
+    [void]$PagesNeeded.Add([int]$_.BaseName);
     [void]$Ins.Pages.Sort();
 }
+
+[void](New-Item -ItemType Directory -Force svg_trim)
+
+$Inkscape = $env:INKSCAPE_BIN;
+
+$PagesNeeded | Sort-Object | Get-Unique | ForEach-Object -Parallel {
+    $CopyName = "svg_trim/$_.svg";
+    Copy-Item -Path "svg/$_.svg" -Destination $CopyName;
+    $CopyItem = Get-Item -Path $CopyName;
+    $Paths = (Select-Xml -Namespace $using:Namespace -Path $CopyItem.FullName -XPath "/svg:svg/svg:g/svg:path") | ForEach-Object { $_.Node }
+    $SelectPath2 = "";
+    if (($Paths.Count -gt 0) -and ($Paths[0].fill -eq "#ffffff")) {
+        $SelectPath2 = "--select=path2";
+    }
+    $SelectPath12 = "";
+    if (($Paths.Count -gt 1) -and ($Paths[1].fill -eq "#ffffff")) {
+        $SelectPath12 = "--select=path12";
+    }
+    # make sure inkscape version is less than 1.0
+    & $using:Inkscape `
+        --select=text6 `
+        --select=text10 `
+        --select=text16 `
+        $SelectPath2 `
+        $SelectPath12 `
+        --verb=EditDelete `
+        --verb=FitCanvasToDrawing `
+        --verb=FileSave `
+        --verb=FileClose `
+        --verb=FileQuit `
+        $CopyItem.FullName
+} -ThrottleLimit 16;
 
 [void](New-Item -ItemType Directory -Force html)
 
